@@ -1,1 +1,1 @@
-VARIANT 2
+Variant 2
