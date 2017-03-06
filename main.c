@@ -31,7 +31,7 @@ int main()
 		if((days>=241)&&(days<=365))
 			res=sum+(sum/100*12);
 	}
-        if(sum>100000)
+	if(sum>100000)
 	{
 		if((days>=0)&&(days<=30))
 			res=sum-(sum/100*10);
