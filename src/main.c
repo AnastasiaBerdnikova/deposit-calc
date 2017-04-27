@@ -3,7 +3,8 @@
 
 int main()
 {
-	int period, amound, iincome;
+	
+        int period, amound, iincome;
 	printf("Input time and sum:");
 	scanf("%d %d", &period, &amound);
 	if(check(period, amound))
