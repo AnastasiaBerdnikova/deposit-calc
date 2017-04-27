@@ -1,15 +1,26 @@
-.PHONY:	all clean
+.PHONY:	all d_test clean
 	
-all : calc
+all : calc depcalc-test
 
-calc:	build/main.o build/deposit.o
-	gcc build/main.o build/deposit.o -o bin/deposit-calc
+calc:	build/src/main.o build/src/deposit.o
+	gcc build/src/main.o build/src/deposit.o -o bin/depcalc
 
-build/deposit.o:	src/deposit.c
-	gcc -Wall -Werror -c src/deposit.c -o build/deposit.o
+build/src/deposit.o:	src/deposit.c
+	gcc -Wall -Werror -c src/deposit.c -o build/src/deposit.o
 
-build/main.o:	src/main.c
-	gcc -Wall -Werror -c src/main.c -o build/main.o
+build/src/main.o:	src/main.c
+	gcc -Wall -Werror -c src/main.c -o build/src/main.o
+
+d_test: depcalc-test
+
+depcalc-test: build/test/main.o build/test/depcalc_test.o build/src/deposit.o
+	gcc build/test/main.o build/test/depcalc_test.o build/src/deposit.o -o bin/depcalc-test
+
+build/test/main.o: test/main.c
+	gcc -I src -I thirdparty -Wall -Werror -c test/main.c -o build/test/main.o
+
+build/test/depcalc_test.o: test/depcalc_test.c
+	gcc -I thirdparty -I src -Wall -Werror -c test/depcalc_test.c -o build/test/depcalc_test.o
 
 clean:
-	rm -rf build/*.o bin/deposit-calc
+	rm -rf build/test/*.o build/src/*.o bin/*
