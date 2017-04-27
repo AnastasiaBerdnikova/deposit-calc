@@ -1,4 +1,4 @@
-.PHONY:	all d_test clean
+.PHONY:	test clean
 	
 all : calc depcalc-test
 
@@ -11,7 +11,7 @@ build/src/deposit.o:	src/deposit.c
 build/src/main.o:	src/main.c
 	gcc -Wall -Werror -c src/main.c -o build/src/main.o
 
-d_test: depcalc-test
+test: depcalc-test
 
 depcalc-test: build/test/main.o build/test/depcalc_test.o build/src/deposit.o
 	gcc build/test/main.o build/test/depcalc_test.o build/src/deposit.o -o bin/depcalc-test
