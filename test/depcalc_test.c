@@ -82,7 +82,7 @@ CTEST(Income, test11){
 }
 
 CTEST(Income, test12){
-	ASSERT_EQUAL(15000, interest_income(241, 100001));
+	ASSERT_EQUAL(12000, interest_income(241, 100001));
 }
 
 CTEST(Income, test13){
@@ -90,5 +90,5 @@ CTEST(Income, test13){
 }
 
 CTEST(Income, test14){
-	ASSERT_EQUAL(15000, interest_income(365, 100001));
+	ASSERT_EQUAL(12000, interest_income(365, 100001));
 }

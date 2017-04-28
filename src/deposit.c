@@ -79,7 +79,7 @@ int interest_income(int period, int amound)
 			{
 				if(period>240)
 				{
-					iincome=(amound/100)*15;
+					iincome=(amound/100)*12;
 				}
 				else
 				{
